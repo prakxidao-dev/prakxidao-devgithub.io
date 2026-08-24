@@ -1,3 +1,6 @@
+/* โหลดฟอนต์ Kanit จาก Google Fonts (อ่านง่าย รองรับภาษาไทย) */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
 /* ===================================
    ตั้งค่าธีมตรงนี้ที่เดียว เปลี่ยนแล้วมีผลทุกหน้า
    =================================== */
@@ -8,9 +11,6 @@
   --text-color: #333;         /* สีตัวหนังสือทั่วไป */
   --font-family: 'Kanit', sans-serif;
 }
-
-/* โหลดฟอนต์ Kanit จาก Google Fonts (อ่านง่าย รองรับภาษาไทย) */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
 
 * {
   box-sizing: border-box;
