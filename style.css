@@ -137,6 +137,23 @@ button:hover {
   background-color: var(--main-color-dark);
 }
 
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 8px;
+  color: var(--main-color);
+  font-size: 1.8em;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: var(--main-color-dark);
+  transform: scale(1.2);
+}
+
 /* ===================================
    RESPONSIVE: ปรับให้ดูดีขึ้นบนมือถือ
    จอเล็กกว่า 480px (มือถือส่วนใหญ่)
