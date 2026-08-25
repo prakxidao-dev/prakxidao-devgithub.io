@@ -1,6 +1,3 @@
-/* โหลดฟอนต์ Kanit จาก Google Fonts (อ่านง่าย รองรับภาษาไทย) */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
-
 /* ===================================
    ตั้งค่าธีมตรงนี้ที่เดียว เปลี่ยนแล้วมีผลทุกหน้า
    =================================== */
@@ -12,17 +9,22 @@
   --font-family: 'Kanit', sans-serif;
 }
 
+/* โหลดฟอนต์ Kanit จาก Google Fonts (อ่านง่าย รองรับภาษาไทย) */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-color);
+  /* เปลี่ยนจากสีพื้นเรียบๆ เป็น gradient ไล่สี */
+  background: linear-gradient(135deg, #faf9fc 0%, #ede9fe 100%);
   color: var(--text-color);
   text-align: center;
   margin: 0;
   padding: 40px 20px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -69,48 +71,6 @@ nav a:hover {
   text-align: left;
 }
 
-.card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.wave {
-  display: inline-block;
-  animation: waving 2s infinite;
-  transform-origin: 70% 70%;
-}
-
-@keyframes waving {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 .avatar {
   width: 150px;
   height: 150px;
@@ -135,23 +95,6 @@ button {
 
 button:hover {
   background-color: var(--main-color-dark);
-}
-
-.social-icons {
-  margin-top: 15px;
-}
-
-.social-icons a {
-  display: inline-block;
-  margin: 0 8px;
-  color: var(--main-color);
-  font-size: 1.8em;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.social-icons a:hover {
-  color: var(--main-color-dark);
-  transform: scale(1.2);
 }
 
 /* ===================================
@@ -185,4 +128,96 @@ button:hover {
     width: 110px;
     height: 110px;
   }
+}
+
+/* ===================================
+   DARK MODE
+   =================================== */
+body.dark-mode {
+  background: linear-gradient(135deg, #1e1b2e 0%, #2d2640 100%);
+  color: #e5e5e5;
+}
+
+body.dark-mode .card {
+  background: #2a2438;
+  color: #e5e5e5;
+}
+
+body.dark-mode nav a {
+  color: #c4b5fd;
+}
+
+/* ปุ่มสลับ dark mode (รูปพระอาทิตย์/พระจันทร์) */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: white;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.3em;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-mode .theme-toggle {
+  background: #2a2438;
+}
+
+/* ===================================
+   LOADING SCREEN
+   =================================== */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===================================
+   TYPING EFFECT
+   =================================== */
+#typing-text {
+  font-size: 1.1em;
+  color: var(--main-color-dark);
+  min-height: 1.5em;
+  border-right: 2px solid var(--main-color);
+  display: inline-block;
+  padding-right: 4px;
+}
+
+/* ===================================
+   ตัวนับผู้เข้าชม
+   =================================== */
+.visit-counter {
+  margin-top: 20px;
+  opacity: 0.8;
 }
